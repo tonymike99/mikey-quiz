@@ -1,7 +1,16 @@
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../hooks/context/index";
 
 function Header() {
+  const { theme, setTheme } = useTheme();
+
+  // To handle theme button onClick
+  const handlerTheme = () => {
+    document.body.classList.toggle(theme);
+    setTheme(theme === "dark-theme" ? "light-theme" : "dark-theme");
+  };
+
   return (
     <header className="header">
       <div className="header-item">
@@ -29,8 +38,15 @@ function Header() {
             </a>
           </li>
           <li>
-            <Link to="#" className="styled-link-2">
-              <i id="theme-icon" className="fas fa-moon fa-lg" />
+            <Link to="#" className="styled-link-2" onClick={handlerTheme}>
+              <i
+                id="theme-icon"
+                className={
+                  theme === "dark-theme"
+                    ? "fas fa-sun fa-lg"
+                    : "fas fa-moon fa-lg"
+                }
+              />
             </Link>
           </li>
         </ul>
