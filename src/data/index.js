@@ -1,6 +1,2 @@
 export { slideshowImages } from "./slideshowImages";
-export {
-  quizCategories,
-  entertainmentQuizCategories,
-  scienceQuizCategories,
-} from "./quizCategories";
+export { quizCategories } from "./quizCategories";
