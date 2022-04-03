@@ -21,10 +21,7 @@ function Categories() {
               </h1>
 
               {quizCategory.subCategories.map((category) => (
-                <Link
-                  key={category._id}
-                  to={`/categories/entertainment/${category.name}`}
-                >
+                <Link key={category._id} to={`/quiz`}>
                   <Card key={category._id} category={category} />
                 </Link>
               ))}
