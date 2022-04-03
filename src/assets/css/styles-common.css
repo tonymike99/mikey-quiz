@@ -101,12 +101,93 @@ i {
   color: var(--light-color);
 }
 
+.btn {
+  cursor: pointer;
+}
+
+/* **************************************************************************************************** */
+
+/* CATEGORIES PAGE */
+
 .card-category {
   border: 5px solid var(--light-color);
 }
 
 .position-modified {
   left: 47% !important;
+}
+
+/* **************************************************************************************************** */
+
+/* QUIZ PAGE */
+
+.rules-div {
+  margin: 0 auto;
+  border-radius: 10px;
+  width: 75%;
+  text-align: center;
+}
+
+.rules {
+  line-height: 2.5rem;
+  list-style-type: none;
+  margin-bottom: 2rem;
+}
+
+.quiz-card {
+  border: 2px solid var(--dark-color);
+  padding: 2rem;
+  width: 60%;
+  border-radius: 10px;
+}
+
+.question {
+  margin-bottom: 2.5rem;
+}
+
+.options {
+  display: flex;
+  gap: 5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-fixed {
+  min-width: 40rem;
+  min-height: 7.5rem;
+  cursor: pointer;
+}
+
+.btn-fixed:hover {
+  background-color: var(--warning-color);
+}
+
+.btn-fixed:disabled {
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* **************************************************************************************************** */
+
+/* RESULT PAGE */
+
+.styled-table {
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: var(--success-color);
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 1.5rem;
+}
+
+.quiz-stats {
+  margin: 5rem 0;
 }
 
 /* PROJECT SPECIFIC COMMON STYLES END */
