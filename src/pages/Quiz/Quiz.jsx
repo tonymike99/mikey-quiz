@@ -1,12 +1,18 @@
 import styles from "./Quiz.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useDocumentTitle, useAxios } from "../../hooks/custom/index";
 import { QuizCard, Rules } from "../../components/index";
+import { apiUrls } from "../../data/index";
 
 function Quiz() {
   // SET DOCUMENT TITLE
   useDocumentTitle("Questions");
+
+  // ****************************************************************************************************
+
+  console.log(apiUrls[useLocation().pathname.slice(-2)]);
 
   // ****************************************************************************************************
 
@@ -15,7 +21,7 @@ function Quiz() {
   const params = {
     method: "get",
     baseURL: "https://opentdb.com",
-    url: "/api.php?amount=10&category=30&difficulty=easy&type=multiple&encode=url3986",
+    url: apiUrls[useLocation().pathname.slice(-2)],
   };
 
   const { response, loading, error } = useAxios(params);
