@@ -50,23 +50,21 @@ function Result() {
           <h1>More Statistics</h1>
           <br />
 
-          <ul>
-            <li>Total number of questions: {Object.keys(questions).length}</li>
-            <li>
-              Number of correct answers:{" "}
-              {Object.keys(questions).reduce(
-                (acc, cur) => (marks[cur] === 5 ? (acc += 1) : acc),
-                0
-              )}
-            </li>
-            <li>
-              Total marks:{" "}
-              {Object.keys(questions).reduce(
-                (acc, cur) => (acc += marks[cur]),
-                0
-              )}
-            </li>
-          </ul>
+          <p>Total number of questions: {Object.keys(questions).length}</p>
+          <p>
+            Number of correct answers:{" "}
+            {Object.keys(questions).reduce(
+              (acc, cur) => (marks[cur] === 5 ? (acc += 1) : acc),
+              0
+            )}
+          </p>
+          <p>
+            Total marks:{" "}
+            {Object.keys(questions).reduce(
+              (acc, cur) => (acc += marks[cur]),
+              0
+            )}
+          </p>
         </div>
       </main>
     </div>
