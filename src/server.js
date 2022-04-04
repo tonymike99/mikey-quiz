@@ -31,7 +31,12 @@ export function makeServer({ environment = "development" } = {}) {
       // auth routes (public)
       this.post("/auth/signup", signupHandler.bind(this));
       this.post("/auth/login", loginHandler.bind(this));
+
+      this.passthrough();
+      this.passthrough("https://opentdb.com/**");
     },
   });
+
+  server.shutdown();
   return server;
 }
