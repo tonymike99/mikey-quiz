@@ -1,3 +1,5 @@
+export { Login } from "./Login/Login";
+export { Signup } from "./Signup/Signup";
 export { Home } from "./Home/Home.jsx";
 export { Categories } from "./Categories/Categories.jsx";
 export { Quiz } from "./Quiz/Quiz.jsx";
