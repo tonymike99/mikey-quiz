@@ -73,61 +73,53 @@ function QuizCard({ quizDatum, index }) {
         <h3 className="question text-center">{question}</h3>
 
         <div className="options">
-          <span>
-            <button
-              className={
-                selectedAns === options_array[0]
-                  ? "btn warning btn-fixed"
-                  : "btn secondary btn-fixed"
-              }
-              disabled={selectedAns}
-              onClick={(e) => handleButtonClick(e)}
-            >
-              {options_array[0]}
-            </button>
-          </span>
+          <button
+            className={
+              selectedAns === options_array[0]
+                ? "btn warning btn-fixed"
+                : "btn secondary btn-fixed"
+            }
+            disabled={selectedAns}
+            onClick={(e) => handleButtonClick(e)}
+          >
+            {options_array[0]}
+          </button>
 
-          <span>
-            <button
-              className={
-                selectedAns === options_array[1]
-                  ? "btn warning btn-fixed"
-                  : "btn secondary btn-fixed"
-              }
-              disabled={selectedAns}
-              onClick={(e) => handleButtonClick(e)}
-            >
-              {options_array[1]}
-            </button>
-          </span>
+          <button
+            className={
+              selectedAns === options_array[1]
+                ? "btn warning btn-fixed"
+                : "btn secondary btn-fixed"
+            }
+            disabled={selectedAns}
+            onClick={(e) => handleButtonClick(e)}
+          >
+            {options_array[1]}
+          </button>
 
-          <span>
-            <button
-              className={
-                selectedAns === options_array[2]
-                  ? "btn warning btn-fixed"
-                  : "btn secondary btn-fixed"
-              }
-              disabled={selectedAns}
-              onClick={(e) => handleButtonClick(e)}
-            >
-              {options_array[2]}
-            </button>
-          </span>
+          <button
+            className={
+              selectedAns === options_array[2]
+                ? "btn warning btn-fixed"
+                : "btn secondary btn-fixed"
+            }
+            disabled={selectedAns}
+            onClick={(e) => handleButtonClick(e)}
+          >
+            {options_array[2]}
+          </button>
 
-          <span>
-            <button
-              className={
-                selectedAns === options_array[3]
-                  ? "btn warning btn-fixed"
-                  : "btn secondary btn-fixed"
-              }
-              disabled={selectedAns}
-              onClick={(e) => handleButtonClick(e)}
-            >
-              {options_array[3]}
-            </button>
-          </span>
+          <button
+            className={
+              selectedAns === options_array[3]
+                ? "btn warning btn-fixed"
+                : "btn secondary btn-fixed"
+            }
+            disabled={selectedAns}
+            onClick={(e) => handleButtonClick(e)}
+          >
+            {options_array[3]}
+          </button>
         </div>
 
         <h5 className="text-bold text-center margin-2">
