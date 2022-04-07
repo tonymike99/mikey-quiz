@@ -9,27 +9,27 @@
 /* COLORS */
 
 :root {
-    --primary-color: #0d6efd;
-    --secondary-color: #6c757d;
-    --success-color: #198754;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
-    --info-color: #0dcaf0;
-    --light-color: #f8f9fa;
-    --dark-color: #212529;
-    --muted-color: #6c757d;
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #0dcaf0;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --muted-color: #6c757d;
 
-    --primary-hover: #0b5ed7;
-    --secondary-hover: #5c636a;
-    --success-hover: #157347;
-    --danger-hover: #bb2d3b;
-    --warning-hover: #ffca2c;
-    --info-hover: #31d2f2;
-    --light-hover: #f9fafb;
-    --dark-hover: #1c1f23;
+  --primary-hover: #0b5ed7;
+  --secondary-hover: #5c636a;
+  --success-hover: #157347;
+  --danger-hover: #bb2d3b;
+  --warning-hover: #ffca2c;
+  --info-hover: #31d2f2;
+  --light-hover: #f9fafb;
+  --dark-hover: #1c1f23;
 
-    --link-hover: #36096d;
-    --dark-theme: #363c49;
+  --link-hover: #36096d;
+  --dark-theme: #363c49;
 }
 
 /* **************************************************************************************************** */
@@ -37,12 +37,12 @@
 /* THEME */
 
 body {
-    font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .dark-theme {
-    background-color: var(--dark-theme);
-    color: var(--light-color);
+  background-color: var(--dark-theme);
+  color: var(--light-color);
 }
 
 /* **************************************************************************************************** */
@@ -50,31 +50,31 @@ body {
 /* OTHER CLASS STYLES START */
 
 .hr-thin {
-    border: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    height: 0;
-    width: 90%;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  height: 0;
+  width: 90%;
 }
 
 .styled-link,
 .styled-link-2 {
-    color: inherit;
+  color: inherit;
 }
 
 .styled-link:hover,
 .styled-link-2 > i:hover {
-    background-color: #36096d;
-    background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 80%);
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background-color: #36096d;
+  background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 80%);
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .font-montserrat {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
 }
 
 /* OTHER CLASS STYLES END */
@@ -84,11 +84,11 @@ body {
 /* DIRECT TAG STYLES START */
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 i {
-    padding: 0.5rem;
+  padding: 0.5rem;
 }
 
 /* DIRECT TAG STYLES END */
@@ -98,11 +98,11 @@ i {
 /* PROJECT SPECIFIC COMMON STYLES START */
 
 .color-white {
-    color: var(--light-color);
+  color: var(--light-color);
 }
 
 .btn {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* **************************************************************************************************** */
@@ -110,11 +110,17 @@ i {
 /* CATEGORIES PAGE */
 
 .card-category {
-    border: 5px solid var(--light-color);
+  border: 5px solid var(--light-color);
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .position-modified {
-    left: 47% !important;
+  left: 47% !important;
 }
 
 /* **************************************************************************************************** */
@@ -122,49 +128,58 @@ i {
 /* QUIZ PAGE */
 
 .rules-div {
-    margin: 0 auto;
-    border-radius: 10px;
-    width: 75%;
-    text-align: center;
+  margin: 0 auto;
+  border-radius: 10px;
+  width: 75%;
+  text-align: center;
 }
 
 .rules {
-    line-height: 2.5rem;
-    list-style-type: none;
-    margin-bottom: 2rem;
+  line-height: 2.5rem;
+  list-style-type: none;
+  margin-bottom: 2rem;
 }
 
 .quiz-card {
-    border: 2px solid var(--dark-color);
-    padding: 2rem;
-    width: 60%;
-    border-radius: 10px;
+  border: 2px solid var(--dark-color);
+  padding: 2rem;
+  width: 60%;
+  border-radius: 10px;
 }
 
 .question {
-    margin-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .options {
-    display: flex;
-    gap: 5rem;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  gap: 5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btn-fixed {
-    min-width: 40rem;
-    min-height: 7.5rem;
-    cursor: pointer;
+  width: 40rem;
+  min-height: 7.5rem;
+  cursor: pointer;
 }
 
 .btn-fixed:hover {
-    background-color: var(--warning-color);
+  background-color: var(--warning-color);
 }
 
 .btn-fixed:disabled {
-    opacity: 0.75;
-    pointer-events: none;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 450px) {
+  .btn-fixed {
+    max-width: 100%;
+    height: 20%;
+  }
 }
 
 /* **************************************************************************************************** */
@@ -172,22 +187,22 @@ i {
 /* RESULT PAGE */
 
 .styled-table {
-    border-collapse: collapse;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .styled-table thead tr {
-    background-color: var(--success-color);
-    text-align: left;
+  background-color: var(--success-color);
+  text-align: left;
 }
 
 .styled-table th,
 .styled-table td {
-    padding: 1.5rem;
+  padding: 1.5rem;
 }
 
 .quiz-stats {
-    margin: 5rem 0;
+  margin: 5rem 0;
 }
 
 /* **************************************************************************************************** */
@@ -195,15 +210,23 @@ i {
 /* LOGIN AND SIGNUP PAGES */
 
 .login-signup-section {
-    width: 20%;
-    text-align: center;
-    padding: 2rem;
+  width: 30rem;
+  text-align: center;
+  padding: 2rem;
 }
 
 .form-spacing {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 300px) {
+  .login-signup-section {
+    width: 100%;
+  }
 }
 
 /* PROJECT SPECIFIC COMMON STYLES END */
