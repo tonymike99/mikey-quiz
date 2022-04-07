@@ -13,9 +13,9 @@ function Home() {
   return (
     <>
       <main className={styles.main}>
-        <section className={styles["categories"]}>
+        <section className="categories">
           {quizCategories.map((category) => (
-            <Link key={category._id} to={`/categories/#${category.name}`}>
+            <Link key={category._id} to={`/categories/${category.name}`}>
               <Card key={category._id} category={category} />
             </Link>
           ))}
