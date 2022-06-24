@@ -9,23 +9,9 @@ import bcyrpt from "bcryptjs";
 export const users = [
   {
     _id: uuid(),
-    firstName: "Adarsh",
-    lastName: "Balika",
-    email: "adarshbalika@gmail.com",
-    password: bcyrpt.hashSync("adarshBalika123", 5),
-  },
-  {
-    _id: uuid(),
-    firstName: "Soham",
-    lastName: "Shah",
-    email: "sohamshah@gmail.com",
-    password: bcyrpt.hashSync("sohamShah123", 5),
-  },
-  {
-    _id: uuid(),
-    firstName: "Shubham",
-    lastName: "Soni",
-    email: "shubhamsoni@gmail.com",
-    password: bcyrpt.hashSync("shubhamSoni123", 5),
+    firstName: "Guest",
+    lastName: "User",
+    email: "guest_user@gmail.com",
+    password: bcyrpt.hashSync("12345", 5),
   },
 ];
