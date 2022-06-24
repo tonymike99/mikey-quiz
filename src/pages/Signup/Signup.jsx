@@ -1,6 +1,8 @@
 import styles from "./Signup.module.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useDocumentTitle } from "../../hooks/custom/index";
+import { useAuth } from "../../hooks/context/index";
 
 function Signup() {
   // SET DOCUMENT TITLE
@@ -8,19 +10,131 @@ function Signup() {
 
   // ****************************************************************************************************
 
+  const { authenticateSignupDetails } = useAuth();
+  const [passwordType, setPasswordType] = useState("password");
+  const [signupDetails, setSignupDetails] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+
+  const handleFirstNameOnChange = (e) => {
+    setSignupDetails({ ...signupDetails, firstName: e.target.value });
+  };
+
+  const handleLastNameOnChange = (e) => {
+    setSignupDetails({ ...signupDetails, lastName: e.target.value });
+  };
+
+  const handleEmailOnChange = (e) => {
+    setSignupDetails({ ...signupDetails, email: e.target.value });
+  };
+
+  const handlePasswordOnChange = (e) => {
+    setSignupDetails({ ...signupDetails, password: e.target.value });
+  };
+
+  const handlePasswordType = () => {
+    passwordType === "text"
+      ? setPasswordType("password")
+      : setPasswordType("text");
+  };
+
+  const handleSignupOnClick = (e) => {
+    e.preventDefault();
+    authenticateSignupDetails(signupDetails);
+  };
+
+  const handleGuestSignupOnClick = () => {
+    setSignupDetails({
+      firstName: "Tony",
+      lastName: "Mike",
+      email: "tonymike@gmail.com",
+      password: "12345",
+    });
+  };
+
+  // ****************************************************************************************************
+
   return (
     <div className={styles["main-container"]}>
-      <main className={styles.main}>
-        <section className="login-signup-section">
-          <h2 className="font-montserrat margin-bottom-2">SIGN UP</h2>
-          <form className="form-spacing" action="#">
-            <input type="text" id="nameInput" placeholder="Name" />
-            <input type="tel" id="phoneInput" placeholder="Phone Number" />
-            <input type="email" id="emailInput" placeholder="Email Address" />
-            <input type="password" id="passwordInput" placeholder="Password" />
-            <button className="btn btn-primary btn-width-100" type="submit">
-              Sign up
-            </button>
+      <main className="main">
+        <section className="auth">
+          <h3 className="h3">SIGN UP</h3>
+
+          <form className="form" action="#">
+            <div className="form-control">
+              <input
+                type="text"
+                id="firstNameInput"
+                placeholder="First Name"
+                required
+                value={signupDetails.firstName}
+                onChange={(e) => handleFirstNameOnChange(e)}
+              />
+            </div>
+
+            <div className="form-control">
+              <input
+                type="text"
+                id="lastNameInput"
+                placeholder="Last Name"
+                required
+                value={signupDetails.lastName}
+                onChange={(e) => handleLastNameOnChange(e)}
+              />
+            </div>
+
+            <div className="form-control">
+              <input
+                type="email"
+                id="emailInput"
+                placeholder="Email Address"
+                required
+                value={signupDetails.email}
+                onChange={(e) => handleEmailOnChange(e)}
+              />
+            </div>
+
+            <div className="form-control relative">
+              <input
+                type={passwordType}
+                id="passwordInput"
+                placeholder="Password"
+                required
+                value={signupDetails.password}
+                onChange={(e) => handlePasswordOnChange(e)}
+              />
+              <span
+                className="absolute badge-center-right color-black"
+                onClick={handlePasswordType}
+              >
+                {passwordType === "password" ? (
+                  <i className="fa-solid fa-eye"></i>
+                ) : (
+                  <i className="fa-solid fa-eye-slash"></i>
+                )}
+              </span>
+            </div>
+
+            <div className="form-control">
+              <button
+                className="btn btn-primary btn-width-100 pointer"
+                type="submit"
+                onClick={(e) => handleSignupOnClick(e)}
+              >
+                Sign up
+              </button>
+            </div>
+
+            <small
+              className="styled-link pointer"
+              onClick={handleGuestSignupOnClick}
+            >
+              Guest Signup
+            </small>
+
             <small>
               Have an account?
               <Link to="/login" className="styled-link">

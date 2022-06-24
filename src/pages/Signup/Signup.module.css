@@ -1,19 +1,5 @@
 .main-container {
   display: grid;
-  grid-template-areas:
-    "main main main main main"
-    "main main main main main"
-    "main main main main main";
-  grid-template-columns: repeat(5, auto);
-  grid-template-rows: repeat(3, auto);
+  grid-template-areas: "main";
+  grid-template-columns: auto;
 }
-
-.main {
-  grid-area: main;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-/* **************************************************************************************************** */
