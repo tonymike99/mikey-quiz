@@ -1,6 +1,6 @@
 import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
-import { Card, Slideshow } from "../../components/index";
+import { Card } from "../../components/index";
 import { quizCategories } from "../../data/quizCategories";
 import { useDocumentTitle } from "../../hooks/custom/index";
 
@@ -21,7 +21,6 @@ function Home() {
           ))}
         </section>
       </main>
-      <Slideshow />
     </>
   );
 }
