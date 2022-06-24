@@ -1,5 +1,5 @@
-import styles from "./PageNotFound.module.css";
 import { useDocumentTitle } from "../../hooks/custom/index";
+var errorImage = require("../../assets/images/404_error.svg");
 
 function PageNotFound() {
   // SET DOCUMENT TITLE
@@ -9,7 +9,13 @@ function PageNotFound() {
 
   return (
     <>
-      <div className={styles.errorImage}></div>
+      <div class="error-image">
+        <img
+          className="image-responsive"
+          src={errorImage.default}
+          alt="404 error"
+        />
+      </div>
     </>
   );
 }
