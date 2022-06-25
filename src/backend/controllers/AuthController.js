@@ -3,6 +3,7 @@ import { Response } from "miragejs";
 import { formatDate, initialUserData } from "../utils/authUtils";
 import bcrypt from "bcryptjs";
 const jwt = require("jsonwebtoken");
+import jwt_decode from "jwt-decode";
 
 /**
  * All the routes related to Auth are present here.
@@ -91,6 +92,42 @@ export const loginHandler = function (schema, request) {
         ],
       }
     );
+  } catch (error) {
+    return new Response(
+      500,
+      {},
+      {
+        error,
+      }
+    );
+  }
+};
+
+/**
+ * This handler handles user verification through the JWT token.
+ * send POST Request at /api/auth/verifyJwtToken
+ * body contains {localToken}
+ * */
+
+export const verifyJwtTokenHandler = function (schema, request) {
+  const { localToken } = JSON.parse(request.requestBody);
+  const decodedToken = jwt_decode(localToken, process.env.REACT_APP_JWT_SECRET);
+  try {
+    if (decodedToken) {
+      const foundUser = this.db.users.findBy({ email: decodedToken.email });
+      if (!foundUser) {
+        return new Response(
+          401,
+          {},
+          {
+            errors: [
+              "The token is invalid. Unauthorized access error. Please login again.",
+            ],
+          }
+        );
+      }
+      return new Response(200, {}, { foundUser });
+    }
   } catch (error) {
     return new Response(
       500,
