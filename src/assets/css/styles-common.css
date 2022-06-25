@@ -58,6 +58,7 @@ i {
 .card-category {
   border: 5px solid var(--light-color);
   border-radius: 10px;
+  background-color: var(--dark-color);
 }
 
 .categories {
@@ -135,10 +136,14 @@ i {
 
 /* RESULT PAGE */
 
+.table-container {
+  overflow-x: auto;
+}
+
 .styled-table {
   border-collapse: collapse;
-  width: 100%;
   margin-bottom: 5rem;
+  width: 100%;
 }
 
 .styled-table thead tr {
@@ -148,7 +153,6 @@ i {
 .styled-table th,
 .styled-table td {
   padding: 1rem;
-  text-align: center;
 }
 
 .quiz-stats {
