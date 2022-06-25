@@ -9,7 +9,7 @@ function PageNotFound() {
 
   return (
     <>
-      <div class="error-image">
+      <div className="error-image">
         <img
           className="image-responsive"
           src={errorImage.default}
