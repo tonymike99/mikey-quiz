@@ -1,8 +1,7 @@
-import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
 import { Card } from "../../components/index";
-import { quizCategories } from "../../data/quizCategories";
 import { useDocumentTitle } from "../../hooks/custom/index";
+import { quizCategories } from "../../data/quizCategories";
 
 function Home() {
   // SET DOCUMENT TITLE
@@ -11,17 +10,15 @@ function Home() {
   // ****************************************************************************************************
 
   return (
-    <>
-      <main className={styles.main}>
-        <section className="categories">
-          {quizCategories.map((category) => (
-            <Link key={category._id} to={`/categories/${category.name}`}>
-              <Card key={category._id} category={category} />
-            </Link>
-          ))}
-        </section>
-      </main>
-    </>
+    <main>
+      <section className="categories">
+        {quizCategories.map((category) => (
+          <Link key={category._id} to={`${category.name}`}>
+            <Card key={category._id} category={category} />
+          </Link>
+        ))}
+      </section>
+    </main>
   );
 }
 
