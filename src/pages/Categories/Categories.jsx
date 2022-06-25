@@ -12,31 +12,19 @@ function Categories() {
   // ****************************************************************************************************
 
   return (
-    <div className={styles["main-container"]}>
-      <main className={styles.main}>
-        {quizCategories
-          .filter(
-            (category) => category.name === useLocation().pathname.slice(12)
-          )
-          .map((quizCategory) => (
-            <>
-              <h1 className="font-montserrat margin-bottom-2">
-                {quizCategory.name.toUpperCase()}
-              </h1>
-
-              <section className="categories">
-                {quizCategory.subCategories.map((category) => (
-                  <Link key={category._id} to={`/quiz/${category._id}`}>
-                    <Card key={category._id} category={category} />
-                  </Link>
-                ))}
-              </section>
-
-              <hr className="hr-thin" />
-            </>
-          ))}
-      </main>
-    </div>
+    <main>
+      {quizCategories
+        .filter((category) => category.name === useLocation().pathname.slice(1))
+        .map((quizCategory) => (
+          <section key={quizCategory._id} className="categories">
+            {quizCategory.subCategories.map((category) => (
+              <Link key={category._id} to={`${category.name}`}>
+                <Card key={category._id} category={category} />
+              </Link>
+            ))}
+          </section>
+        ))}
+    </main>
   );
 }
 
