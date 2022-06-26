@@ -8,7 +8,7 @@ function Card({ category }) {
         src={require("../../assets/images/" + imgUrl).default}
         alt={name}
       />
-      <span className="absolute badge-center-top">
+      <span className="absolute badge-inside-center-top">
         <h3 className="h3 color-white">{name.toUpperCase()}</h3>
       </span>
     </div>
