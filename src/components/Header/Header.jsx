@@ -24,7 +24,7 @@ function Header() {
   return (
     <header className="header">
       <Link to="/" className="brand-name">
-        Quizothrill
+        Mikey Quiz
       </Link>
 
       <nav>
@@ -49,7 +49,7 @@ function Header() {
           <li>
             <a
               className="styled-link"
-              href="https://github.com/tonymike99/quizothrill"
+              href="https://github.com/tonymike99/mikey-quiz"
               target="_blank"
               rel="noreferrer"
             >

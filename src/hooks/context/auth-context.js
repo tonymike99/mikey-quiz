@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
   // ****************************************************************************************************
 
   useEffect(() => {
-    const localToken = localStorage.getItem("quizothrill-jwt-token");
+    const localToken = localStorage.getItem("mikey-quiz-jwt-token");
 
     if (localToken) {
       verifyJwtTokenOnPageRefresh(localToken);
@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
         setUserDetails(loginResponse.data.foundUser);
         setEncodedToken(loginResponse.data.encodedToken);
         localStorage.setItem(
-          "quizothrill-jwt-token",
+          "mikey-quiz-jwt-token",
           loginResponse.data.encodedToken
         );
       }
@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
         setUserDetails(signupResponse.data.createdUser);
         setEncodedToken(signupResponse.data.encodedToken);
         localStorage.setItem(
-          "quizothrill-jwt-token",
+          "mikey-quiz-jwt-token",
           signupResponse.data.encodedToken
         );
       }
@@ -70,7 +70,7 @@ const AuthProvider = ({ children }) => {
   const logoutUserDetails = () => {
     setUserDetails(null);
     setEncodedToken(null);
-    localStorage.removeItem("quizothrill-jwt-token");
+    localStorage.removeItem("mikey-quiz-jwt-token");
     localStorage.removeItem("storedFilters");
     localStorage.removeItem("storedWishlistProducts");
     localStorage.removeItem("storedCartProducts");

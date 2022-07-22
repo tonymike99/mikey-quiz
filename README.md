@@ -1,5 +1,5 @@
-# [Quizothrill](https://quizothrill.netlify.app/)
+# [Mikey Quiz](https://mikey-quiz.netlify.app/)
 
 ## Introduction
 
-Quizothrill is a quiz web application to test your knowledge on different categories by answering a few questions.
+Mikey Quiz is a quiz web application to test your knowledge on different categories by answering a few questions.
