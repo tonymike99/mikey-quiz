@@ -1,5 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { PrivateRoute, RestrictedRoute } from "./auth/index";
 import {
   Login,
   Signup,
@@ -18,11 +19,18 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+
+        {/* <Route element={<RestrictedRoute />}> */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/categories/:name" element={<Categories />} />
-        <Route path="/quiz/:id" element={<Quiz />} />
-        <Route path="/result" element={<Result />} />
+        {/* </Route> */}
+
+        {/* <Route element={<PrivateRoute />}> */}
+        <Route path="/:name" element={<Categories />} />
+        <Route path="/:name/:name" element={<Quiz />} />
+        <Route path="/:name/:name/result" element={<Result />} />
+        {/* </Route> */}
+
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
 

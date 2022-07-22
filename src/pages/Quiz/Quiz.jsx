@@ -17,12 +17,12 @@ function Quiz() {
   const params = {
     method: "get",
     baseURL: "https://opentdb.com",
-    url: apiUrls[useLocation().pathname.slice(-2)],
+    url: apiUrls[useLocation().pathname.slice(9)],
   };
 
   const { response, loading, error } = useAxios(params);
 
-  const [quizData, setQuizData] = useState([]);
+  const [quizData, setQuizData] = useState(null);
 
   useEffect(() => {
     if (response !== null) {
@@ -31,6 +31,8 @@ function Quiz() {
   }, [response]);
 
   // ****************************************************************************************************
+
+  // To start quiz
 
   const [startQuiz, setStartQuiz] = useState(false);
 
@@ -41,32 +43,36 @@ function Quiz() {
   // ****************************************************************************************************
 
   return (
-    <div className={styles["main-container"]}>
-      <main className={styles.main}>
-        {!startQuiz && <Rules />}
+    <main>
+      {!startQuiz && (
+        <section>
+          {loading && <h3 className="h3 text-center">Loading quiz...</h3>}
+          {error && <p className="text-bold text-center">{error.message}</p>}
+        </section>
+      )}
 
-        {!startQuiz && (
+      {!error && !startQuiz && (
+        <section className="flex-center">
+          <Rules />
+
           <button className="btn primary" onClick={handlerStartQuiz}>
             Start Quiz
           </button>
-        )}
+        </section>
+      )}
 
-        {startQuiz &&
-          quizData.map((quizDatum, index) => (
-            <QuizCard
-              key={quizDatum.question}
-              quizDatum={quizDatum}
-              index={index}
-            />
+      {!error && startQuiz && (
+        <section className="flex-center">
+          {quizData.map((quizDatum, index) => (
+            <QuizCard key={index} quizDatum={quizDatum} index={index} />
           ))}
 
-        {startQuiz && (
-          <Link to="/result">
+          <Link to="result">
             <button className="btn danger">End Quiz</button>
           </Link>
-        )}
-      </main>
-    </div>
+        </section>
+      )}
+    </main>
   );
 }
 

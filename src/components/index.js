@@ -1,6 +1,5 @@
-export { Slideshow } from "./Slideshow";
 export { Header } from "./Header/Header";
 export { Footer } from "./Footer/Footer";
-export { Card } from "./Card";
-export { QuizCard } from "./QuizCard";
-export { Rules } from "./Rules";
+export { Card } from "./Cards/Card";
+export { QuizCard } from "./Cards/QuizCard";
+export { Rules } from "./Cards/Rules";

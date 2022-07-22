@@ -1,105 +1,51 @@
-/* FONT */
-
-@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;900&display=swap");
+/* COMPONENT STYLES */
+@import url("https://mikey-css.netlify.app/assets/css/components.css");
 
 /* **************************************************************************************************** */
-
-/* COLORS */
-
-:root {
-  --primary-color: #0d6efd;
-  --secondary-color: #6c757d;
-  --success-color: #198754;
-  --danger-color: #dc3545;
-  --warning-color: #ffc107;
-  --info-color: #0dcaf0;
-  --light-color: #f8f9fa;
-  --dark-color: #212529;
-  --muted-color: #6c757d;
-
-  --primary-hover: #0b5ed7;
-  --secondary-hover: #5c636a;
-  --success-hover: #157347;
-  --danger-hover: #bb2d3b;
-  --warning-hover: #ffca2c;
-  --info-hover: #31d2f2;
-  --light-hover: #f9fafb;
-  --dark-hover: #1c1f23;
-
-  --link-hover: #36096d;
-  --dark-theme: #363c49;
-}
-
-/* **************************************************************************************************** */
-
-/* THEME */
 
 body {
   font-family: "Nunito Sans", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1;
+  background-color: var(--light-mode);
+  color: var(--dark-mode);
 }
 
 .dark-theme {
-  background-color: var(--dark-theme);
-  color: var(--light-color);
+  --light-mode: #05103a;
+  --dark-mode: #f8f9fa;
 }
-
-/* **************************************************************************************************** */
-
-/* OTHER CLASS STYLES START */
 
 .hr-thin {
   border: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   height: 0;
-  width: 90%;
+  width: 100%;
 }
 
-.styled-link,
-.styled-link-2 {
+.styled-link {
   color: inherit;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-.styled-link:hover,
-.styled-link-2 > i:hover {
+.styled-link:hover {
   background-color: #36096d;
   background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 80%);
   -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
   -webkit-background-clip: text;
+  -moz-text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
-}
-
-.font-montserrat {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 900;
-}
-
-/* OTHER CLASS STYLES END */
-
-/* **************************************************************************************************** */
-
-/* DIRECT TAG STYLES START */
-
-a {
-  text-decoration: none;
 }
 
 i {
   padding: 0.5rem;
 }
 
-/* DIRECT TAG STYLES END */
-
 /* **************************************************************************************************** */
 
 /* PROJECT SPECIFIC COMMON STYLES START */
-
-.color-white {
-  color: var(--light-color);
-}
 
 .btn {
   cursor: pointer;
@@ -107,78 +53,81 @@ i {
 
 /* **************************************************************************************************** */
 
-/* CATEGORIES PAGE */
+/* HOME AND CATEGORIES PAGE */
 
 .card-category {
   border: 5px solid var(--light-color);
+  border-radius: 10px;
+  background-color: var(--dark-color);
 }
 
 .categories {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 2.5rem;
+  padding: 0 2.5rem;
 }
 
-.position-modified {
-  left: 47% !important;
+.categories > * {
+  flex-basis: 25rem;
+}
+
+.badge-inside-center-top {
+  top: 10% !important;
 }
 
 /* **************************************************************************************************** */
 
 /* QUIZ PAGE */
 
-.rules-div {
-  margin: 0 auto;
-  border-radius: 10px;
-  width: 75%;
-  text-align: center;
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5rem;
 }
 
-.rules {
+.rules-container {
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+.rules-list {
   line-height: 2.5rem;
-  list-style-type: none;
-  margin-bottom: 2rem;
 }
 
 .quiz-card {
-  border: 2px solid var(--dark-color);
-  padding: 2rem;
+  box-shadow: 0 0 10px #ccc;
+  border-radius: 1rem;
+  padding: 1rem;
   width: 60%;
-  border-radius: 10px;
 }
 
-.question {
-  margin-bottom: 2.5rem;
-}
-
-.options {
+.quiz-options {
   display: flex;
-  gap: 5rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.btn-fixed {
-  width: 40rem;
-  min-height: 7.5rem;
-  cursor: pointer;
+.btn-option {
+  width: 30rem;
 }
 
-.btn-fixed:hover {
-  background-color: var(--warning-color);
+.btn-option:hover {
+  background-color: var(--success-color);
 }
 
-.btn-fixed:disabled {
-  opacity: 0.75;
+.btn-option:disabled {
+  background-color: rgba(0, 0, 0, 0.1);
   pointer-events: none;
 }
 
-/* MEDIA QUERIES */
-
-@media only screen and (max-width: 450px) {
-  .btn-fixed {
-    max-width: 100%;
-    height: 20%;
+@media only screen and (max-width: 1080px) {
+  .quiz-card {
+    width: 80%;
   }
 }
 
@@ -186,49 +135,76 @@ i {
 
 /* RESULT PAGE */
 
+.table-container {
+  overflow-x: auto;
+}
+
 .styled-table {
   border-collapse: collapse;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 5rem;
+  width: 100%;
 }
 
 .styled-table thead tr {
   background-color: var(--success-color);
-  text-align: left;
 }
 
 .styled-table th,
 .styled-table td {
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .quiz-stats {
-  margin: 5rem 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  padding: 2.5rem;
 }
 
 /* **************************************************************************************************** */
 
 /* LOGIN AND SIGNUP PAGES */
 
-.login-signup-section {
-  width: 30rem;
-  text-align: center;
-  padding: 2rem;
-}
-
-.form-spacing {
+.auth {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
-/* MEDIA QUERIES */
+.form {
+  padding: 2rem;
+  width: 30rem;
+  text-align: center;
+}
 
-@media only screen and (max-width: 300px) {
-  .login-signup-section {
+@media only screen and (max-width: 360px) {
+  .form {
     width: 100%;
   }
 }
 
-/* PROJECT SPECIFIC COMMON STYLES END */
+/* **************************************************************************************************** */
+
+/* 404 PAGE */
+
+.error-image {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .error-image {
+    max-width: 50%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .error-image {
+    max-width: 40%;
+  }
+}
 
 /* **************************************************************************************************** */
