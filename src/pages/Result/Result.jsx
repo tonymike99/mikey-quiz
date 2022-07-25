@@ -45,7 +45,7 @@ function Result() {
 
             <tbody>
               {Object.keys(questions).map((question, index) => (
-                <tr>
+                <tr key={question}>
                   <td className="text-center">{index + 1}</td>
                   <td>{questions[question]}</td>
                   <td>{expectedAnswers[question]}</td>

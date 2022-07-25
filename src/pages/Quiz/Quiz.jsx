@@ -17,7 +17,7 @@ function Quiz() {
   const params = {
     method: "get",
     baseURL: "https://opentdb.com",
-    url: apiUrls[useLocation().pathname.slice(9)],
+    url: apiUrls[useLocation().pathname],
   };
 
   const { response, loading, error } = useAxios(params);
@@ -44,14 +44,12 @@ function Quiz() {
 
   return (
     <main>
-      {!startQuiz && (
-        <section>
-          {loading && <h3 className="h3 text-center">Loading quiz...</h3>}
-          {error && <p className="text-bold text-center">{error.message}</p>}
-        </section>
-      )}
+      <section>
+        {loading && <h3 className="h3 text-center">Loading quiz...</h3>}
+        {error && <p className="text-bold text-center">{error.message}</p>}
+      </section>
 
-      {!error && !startQuiz && (
+      {!loading && !error && !startQuiz && (
         <section className="flex-center">
           <Rules />
 
@@ -61,7 +59,7 @@ function Quiz() {
         </section>
       )}
 
-      {!error && startQuiz && (
+      {startQuiz && (
         <section className="flex-center">
           {quizData.map((quizDatum, index) => (
             <QuizCard key={index} quizDatum={quizDatum} index={index} />
