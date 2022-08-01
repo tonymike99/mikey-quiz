@@ -18,14 +18,7 @@ function QuizCard({ quizDatum, index }) {
 
   // ****************************************************************************************************
 
-  const {
-    questions,
-    setQuestions,
-    expectedAnswers,
-    setExpectedAnswers,
-    actualAnswers,
-    setActualAnswers,
-  } = useQuiz();
+  const { dispatch } = useQuiz();
 
   // Set the chosen option to selectedAns
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -34,20 +27,29 @@ function QuizCard({ quizDatum, index }) {
   const handleButtonClick = (e) => {
     setSelectedAnswer(e.target.innerText);
 
+    dispatch({
+      type: "ADD_QUESTION",
+      payload: {
+        questionNumber: `Q${index + 1}`,
+        question: question,
+      },
+    });
+
+    dispatch({
+      type: "ADD_EXPECTED_ANSWER",
+      payload: {
+        questionNumber: `Q${index + 1}`,
+        expectedAnswer: correct_answer,
+      },
+    });
+
     // Add selected answer to ActualAnswersList
-    setActualAnswers({
-      ...actualAnswers,
-      [`Q${index + 1}`]: e.target.innerText,
-    });
-
-    setQuestions({
-      ...questions,
-      [`Q${index + 1}`]: question,
-    });
-
-    setExpectedAnswers({
-      ...expectedAnswers,
-      [`Q${index + 1}`]: correct_answer,
+    dispatch({
+      type: "ADD_ACTUAL_ANSWER",
+      payload: {
+        questionNumber: `Q${index + 1}`,
+        actualAnswer: e.target.innerText,
+      },
     });
   };
 

@@ -1,21 +1,19 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useReducer } from "react";
+import { quizReducer } from "../reducer/quiz-reducer";
 
 const defaultObj = {};
 const QuizContext = createContext(defaultObj);
 
 const QuizProvider = ({ children }) => {
-  const [questions, setQuestions] = useState({});
-  const [expectedAnswers, setExpectedAnswers] = useState({});
-  const [actualAnswers, setActualAnswers] = useState({});
-
-  const valueObj = {
-    questions,
-    setQuestions,
-    expectedAnswers,
-    setExpectedAnswers,
-    actualAnswers,
-    setActualAnswers,
+  const initialState = {
+    questions: {},
+    expectedAnswers: {},
+    actualAnswers: {},
   };
+
+  const [quizStates, dispatch] = useReducer(quizReducer, initialState);
+
+  const valueObj = { quizStates, dispatch };
 
   return (
     <QuizContext.Provider value={valueObj}>{children}</QuizContext.Provider>

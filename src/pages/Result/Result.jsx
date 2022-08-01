@@ -9,12 +9,14 @@ function Result() {
   // ****************************************************************************************************
 
   // useQuiz
-  const { questions, expectedAnswers, actualAnswers } = useQuiz();
+  const { quizStates } = useQuiz();
 
-  let totalQuestionsCount = Object.keys(questions).length;
-  let correctAnswersCount = Object.keys(questions).reduce(
+  let totalQuestionsCount = Object.keys(quizStates.questions).length;
+  let correctAnswersCount = Object.keys(quizStates.questions).reduce(
     (acc, cur) =>
-      expectedAnswers[cur] === actualAnswers[cur] ? (acc += 1) : acc,
+      quizStates.expectedAnswers[cur] === quizStates.actualAnswers[cur]
+        ? (acc += 1)
+        : acc,
     0
   );
   let incorrectAnswersCount = totalQuestionsCount - correctAnswersCount;
@@ -44,19 +46,22 @@ function Result() {
             </thead>
 
             <tbody>
-              {Object.keys(questions).map((question, index) => (
-                <tr key={question}>
-                  <td className="text-center">{index + 1}</td>
-                  <td>{questions[question]}</td>
-                  <td>{expectedAnswers[question]}</td>
-                  <td>{actualAnswers[question] ?? "-"}</td>
-                  <td>
-                    {expectedAnswers[question] === actualAnswers[question]
-                      ? 5
-                      : 0}
-                  </td>
-                </tr>
-              ))}
+              {Object.keys(quizStates.questions).map(
+                (questionNumber, index) => (
+                  <tr key={questionNumber}>
+                    <td className="text-center">{index + 1}</td>
+                    <td>{quizStates.questions[questionNumber]}</td>
+                    <td>{quizStates.expectedAnswers[questionNumber]}</td>
+                    <td>{quizStates.actualAnswers[questionNumber] ?? "-"}</td>
+                    <td>
+                      {quizStates.expectedAnswers[questionNumber] ===
+                      quizStates.actualAnswers[questionNumber]
+                        ? 5
+                        : 0}
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>
