@@ -1,4 +1,3 @@
-import styles from "./Quiz.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -12,12 +11,14 @@ function Quiz() {
 
   // ****************************************************************************************************
 
+  const location = useLocation();
+
   // GET DATA
 
   const params = {
     method: "get",
     baseURL: "https://opentdb.com",
-    url: apiUrls[useLocation().pathname],
+    url: apiUrls[location.pathname],
   };
 
   const { response, loading, error } = useAxios(params);

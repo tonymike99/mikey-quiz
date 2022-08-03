@@ -1,4 +1,3 @@
-import styles from "./Categories.module.css";
 import { Link } from "react-router-dom";
 import { Card } from "../../components/index";
 import { quizCategories } from "../../data/quizCategories";
@@ -9,12 +8,14 @@ function Categories() {
   // SET DOCUMENT TITLE
   useDocumentTitle("Categories");
 
+  const location = useLocation();
+
   // ****************************************************************************************************
 
   return (
     <main>
       {quizCategories
-        .filter((category) => category.name === useLocation().pathname.slice(1))
+        .filter((category) => category.name === location.pathname.slice(1))
         .map((quizCategory) => (
           <section key={quizCategory._id} className="categories">
             {quizCategory.subCategories.map((category) => (
