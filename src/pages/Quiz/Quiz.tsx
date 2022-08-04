@@ -1,23 +1,30 @@
-import styles from "./Quiz.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useDocumentTitle, useAxios } from "../../hooks/custom/index";
 import { QuizCard, Rules } from "../../components/index";
-import { apiUrls } from "../../data/index";
+import { getApiUrl } from "../../data/index";
 
-function Quiz() {
+function Quiz(): JSX.Element {
   // SET DOCUMENT TITLE
   useDocumentTitle("Questions");
 
   // ****************************************************************************************************
 
+  const location = useLocation();
+
   // GET DATA
 
-  const params = {
+  type Params = {
+    method: string;
+    baseURL: string;
+    url: any;
+  };
+
+  const params: Params = {
     method: "get",
     baseURL: "https://opentdb.com",
-    url: apiUrls[useLocation().pathname],
+    url: getApiUrl(location.pathname),
   };
 
   const { response, loading, error } = useAxios(params);
@@ -61,9 +68,18 @@ function Quiz() {
 
       {startQuiz && (
         <section className="flex-center">
-          {quizData.map((quizDatum, index) => (
-            <QuizCard key={index} quizDatum={quizDatum} index={index} />
-          ))}
+          {quizData.map(
+            (
+              quizDatum: {
+                question: string;
+                correct_answer: string;
+                incorrect_answers: string[];
+              },
+              index: number
+            ) => (
+              <QuizCard key={index} quizDatum={quizDatum} index={index} />
+            )
+          )}
 
           <Link to="result">
             <button className="btn danger">End Quiz</button>

@@ -1,4 +1,4 @@
-function Rules() {
+function Rules(): JSX.Element {
   return (
     <div className="rules-container text-center">
       <h2 className=" h2 margin-bottom-2">Guidelines </h2>

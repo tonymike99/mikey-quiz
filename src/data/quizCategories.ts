@@ -1,6 +1,21 @@
 import { v4 as uuid } from "uuid";
 
-const quizCategories = [
+type QuizSubCategory = {
+  _id: number;
+  name: string;
+  imgUrl: string;
+};
+
+type QuizCategory = {
+  _id: string;
+  name: string;
+  imgUrl: string;
+  subCategories: QuizSubCategory[];
+};
+
+type QuizCategories = QuizCategory[];
+
+const quizCategories: QuizCategories = [
   {
     _id: uuid(),
     name: "entertainment",

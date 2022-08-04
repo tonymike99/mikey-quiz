@@ -12,7 +12,7 @@ import {
 } from "./pages/index";
 import { Header, Footer } from "./components/index";
 
-function App() {
+function App(): JSX.Element {
   return (
     <>
       <Header />

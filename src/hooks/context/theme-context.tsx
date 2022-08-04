@@ -1,11 +1,17 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
+type ChildrenProps = {
+  children: React.ReactNode;
+};
+
 const defaultObj = {};
 const ThemeContext = createContext(defaultObj);
 
-const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children }: ChildrenProps) => {
+  const storedTheme = localStorage.getItem("storedTheme");
+
   const [theme, setTheme] = useState(
-    JSON.parse(localStorage.getItem("storedTheme")) ?? "light-theme"
+    storedTheme !== null ? JSON.parse(storedTheme) : "light-theme"
   );
 
   useEffect(() => {

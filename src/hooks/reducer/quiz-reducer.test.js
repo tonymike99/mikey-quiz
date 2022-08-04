@@ -1,5 +1,15 @@
 import { quizReducer } from "./quiz-reducer";
 
+// type Action = {
+//   type: string;
+//   payload: {
+//     questionNumber: string;
+//     question: string;
+//     expectedAnswer: string;
+//     actualAnswer: string;
+//   };
+// };
+
 describe("QUIZ REDUCER", () => {
   test("add question to questions", () => {
     // ARRANGE

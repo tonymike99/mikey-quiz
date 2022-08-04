@@ -1,4 +1,9 @@
-function Card({ category }) {
+type Category = {
+  name: string;
+  imgUrl: String;
+};
+
+function Card({ category }: { category: Category }): JSX.Element {
   const { name, imgUrl } = category;
 
   return (

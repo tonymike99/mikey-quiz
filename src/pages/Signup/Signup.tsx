@@ -1,28 +1,38 @@
-import styles from "./Login.module.css";
+import styles from "./Signup.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDocumentTitle } from "../../hooks/custom/index";
 import { useAuth } from "../../hooks/context/index";
 
-function Login() {
+function Signup(): JSX.Element {
   // SET DOCUMENT TITLE
-  useDocumentTitle("Login");
+  useDocumentTitle("Signup");
 
   // ****************************************************************************************************
 
-  const { authenticateLoginDetails } = useAuth();
+  const { authenticateSignupDetails } = useAuth();
   const [passwordType, setPasswordType] = useState("password");
-  const [loginDetails, setLoginDetails] = useState({
+  const [signupDetails, setSignupDetails] = useState({
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
   });
 
-  const handleEmailOnChange = (e) => {
-    setLoginDetails({ ...loginDetails, email: e.target.value });
+  const handleFirstNameOnChange = (e: any) => {
+    setSignupDetails({ ...signupDetails, firstName: e.target.value });
   };
 
-  const handlePasswordOnChange = (e) => {
-    setLoginDetails({ ...loginDetails, password: e.target.value });
+  const handleLastNameOnChange = (e: any) => {
+    setSignupDetails({ ...signupDetails, lastName: e.target.value });
+  };
+
+  const handleEmailOnChange = (e: any) => {
+    setSignupDetails({ ...signupDetails, email: e.target.value });
+  };
+
+  const handlePasswordOnChange = (e: any) => {
+    setSignupDetails({ ...signupDetails, password: e.target.value });
   };
 
   const handlePasswordType = () => {
@@ -31,16 +41,18 @@ function Login() {
       : setPasswordType("text");
   };
 
-  const handleGuestLoginOnClick = () => {
-    setLoginDetails({
-      email: "guest_user@gmail.com",
-      password: "12345",
-    });
+  const handleSignupOnClick = (e: any) => {
+    e.preventDefault();
+    authenticateSignupDetails(signupDetails);
   };
 
-  const handleLoginOnClick = (e) => {
-    e.preventDefault();
-    authenticateLoginDetails(loginDetails);
+  const handleGuestSignupOnClick = () => {
+    setSignupDetails({
+      firstName: "Tony",
+      lastName: "Mike",
+      email: "tonymike@gmail.com",
+      password: "12345",
+    });
   };
 
   // ****************************************************************************************************
@@ -49,16 +61,38 @@ function Login() {
     <div className={styles["main-container"]}>
       <main className="main">
         <section className="auth">
-          <h3 className="h3">LOGIN</h3>
+          <h3 className="h3">SIGN UP</h3>
 
           <form className="form" action="#">
+            <div className="form-control">
+              <input
+                type="text"
+                id="firstNameInput"
+                placeholder="First Name"
+                required
+                value={signupDetails.firstName}
+                onChange={(e) => handleFirstNameOnChange(e)}
+              />
+            </div>
+
+            <div className="form-control">
+              <input
+                type="text"
+                id="lastNameInput"
+                placeholder="Last Name"
+                required
+                value={signupDetails.lastName}
+                onChange={(e) => handleLastNameOnChange(e)}
+              />
+            </div>
+
             <div className="form-control">
               <input
                 type="email"
                 id="emailInput"
                 placeholder="Email Address"
                 required
-                value={loginDetails.email}
+                value={signupDetails.email}
                 onChange={(e) => handleEmailOnChange(e)}
               />
             </div>
@@ -69,7 +103,7 @@ function Login() {
                 id="passwordInput"
                 placeholder="Password"
                 required
-                value={loginDetails.password}
+                value={signupDetails.password}
                 onChange={(e) => handlePasswordOnChange(e)}
               />
               <span
@@ -88,24 +122,24 @@ function Login() {
               <button
                 className="btn btn-primary btn-width-100 pointer"
                 type="submit"
-                onClick={(e) => handleLoginOnClick(e)}
+                onClick={(e) => handleSignupOnClick(e)}
               >
-                Login
+                Sign up
               </button>
             </div>
 
             <small
               className="styled-link pointer"
-              onClick={handleGuestLoginOnClick}
+              onClick={handleGuestSignupOnClick}
             >
-              Guest Login
+              Guest Signup
             </small>
 
             <small>
-              Don't have an account?
-              <Link to="/signup" className="styled-link">
+              Have an account?
+              <Link to="/login" className="styled-link">
                 {" "}
-                Sign up
+                Log in
               </Link>
             </small>
           </form>
@@ -115,4 +149,4 @@ function Login() {
   );
 }
 
-export { Login };
+export { Signup };

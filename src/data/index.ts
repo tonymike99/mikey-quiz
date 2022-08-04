@@ -1,2 +1,2 @@
 export { quizCategories } from "./quizCategories";
-export { apiUrls } from "./apiUrls";
+export { getApiUrl } from "./apiUrls";
