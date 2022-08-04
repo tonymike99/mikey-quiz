@@ -1,10 +1,14 @@
 import { createContext, useContext, useReducer } from "react";
 import { quizReducer } from "../reducer/quiz-reducer";
 
+type ChildrenProps = {
+  children: React.ReactNode;
+};
+
 const defaultObj = {};
 const QuizContext = createContext(defaultObj);
 
-const QuizProvider = ({ children }) => {
+const QuizProvider = ({ children }: ChildrenProps) => {
   const initialState = {
     questions: {},
     expectedAnswers: {},

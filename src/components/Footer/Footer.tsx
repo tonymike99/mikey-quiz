@@ -1,6 +1,6 @@
 import "./Footer.css";
 
-function Footer() {
+function Footer(): JSX.Element {
   return (
     <footer className="footer">
       <small>

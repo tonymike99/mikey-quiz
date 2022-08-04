@@ -1,8 +1,7 @@
-import styles from "./Result.module.css";
 import { useDocumentTitle } from "../../hooks/custom/index";
 import { useQuiz } from "../../hooks/context/index";
 
-function Result() {
+function Result(): JSX.Element {
   // SET DOCUMENT TITLE
   useDocumentTitle("Result");
 
@@ -11,20 +10,20 @@ function Result() {
   // useQuiz
   const { quizStates } = useQuiz();
 
-  let totalQuestionsCount = Object.keys(quizStates.questions).length;
-  let correctAnswersCount = Object.keys(quizStates.questions).reduce(
+  let totalQuestionsCount: number = Object.keys(quizStates.questions).length;
+  let correctAnswersCount: number = Object.keys(quizStates.questions).reduce(
     (acc, cur) =>
       quizStates.expectedAnswers[cur] === quizStates.actualAnswers[cur]
         ? (acc += 1)
         : acc,
     0
   );
-  let incorrectAnswersCount = totalQuestionsCount - correctAnswersCount;
-  let maximumMarks = totalQuestionsCount * 5;
-  let obtainedMarks = correctAnswersCount * 5;
-  let percentageOfCorrectAnswers = parseFloat(
+  let incorrectAnswersCount: number = totalQuestionsCount - correctAnswersCount;
+  let maximumMarks: number = totalQuestionsCount * 5;
+  let obtainedMarks: number = correctAnswersCount * 5;
+  let percentageOfCorrectAnswers: number = Math.trunc(
     (correctAnswersCount / totalQuestionsCount) * 100
-  ).toFixed(2);
+  );
 
   // ****************************************************************************************************
 

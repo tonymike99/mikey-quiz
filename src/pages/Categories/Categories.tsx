@@ -4,7 +4,7 @@ import { quizCategories } from "../../data/quizCategories";
 import { useDocumentTitle } from "../../hooks/custom/index";
 import { useLocation } from "react-router-dom";
 
-function Categories() {
+function Categories(): JSX.Element {
   // SET DOCUMENT TITLE
   useDocumentTitle("Categories");
 

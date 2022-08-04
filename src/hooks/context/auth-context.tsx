@@ -2,10 +2,24 @@ import axios from "axios";
 import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
 
+type ChildrenProps = {
+  children: React.ReactNode;
+};
+
+type LoginResponse = {
+  foundUser: string | null;
+  encodedToken: string;
+};
+
+type Response = {
+  status: number;
+  data: LoginResponse;
+};
+
 const defaultObj = {};
 const AuthContext = createContext(defaultObj);
 
-const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }: ChildrenProps) => {
   const [userDetails, setUserDetails] = useState(null);
   const [encodedToken, setEncodedToken] = useState(null);
 
@@ -21,7 +35,7 @@ const AuthProvider = ({ children }) => {
 
   // ****************************************************************************************************
 
-  const authenticateLoginDetails = async (loginDetails) => {
+  const authenticateLoginDetails = async (loginDetails: {}) => {
     try {
       const params = {
         method: "post",
@@ -29,7 +43,7 @@ const AuthProvider = ({ children }) => {
         data: loginDetails,
       };
 
-      const loginResponse = await axios.request(params);
+      const loginResponse: Response = await axios.request(params);
 
       if (loginResponse.status === 200) {
         setUserDetails(loginResponse.data.foundUser);
@@ -44,7 +58,7 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const authenticateSignupDetails = async (signupDetails) => {
+  const authenticateSignupDetails = async (signupDetails: {}) => {
     try {
       const params = {
         method: "post",
@@ -76,7 +90,7 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("storedCartProducts");
   };
 
-  const verifyJwtTokenOnPageRefresh = async (localToken) => {
+  const verifyJwtTokenOnPageRefresh = async (localToken: string | null) => {
     try {
       const params = {
         method: "post",

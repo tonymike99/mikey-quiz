@@ -3,7 +3,7 @@ import { Card } from "../../components/index";
 import { useDocumentTitle } from "../../hooks/custom/index";
 import { quizCategories } from "../../data/quizCategories";
 
-function Home() {
+function Home(): JSX.Element {
   // SET DOCUMENT TITLE
   useDocumentTitle("Home");
 

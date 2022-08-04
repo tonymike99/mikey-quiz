@@ -1,7 +1,19 @@
 import { useState } from "react";
 import { useQuiz } from "../../hooks/context/index";
 
-function QuizCard({ quizDatum, index }) {
+type QuizDatum = {
+  question: string;
+  correct_answer: string;
+  incorrect_answers: string[];
+};
+
+function QuizCard({
+  quizDatum,
+  index,
+}: {
+  quizDatum: QuizDatum;
+  index: number;
+}): JSX.Element {
   let { question, correct_answer, incorrect_answers } = quizDatum;
 
   // DECODING SINCE API DATA MIGHT BE IN ASCII
@@ -24,7 +36,7 @@ function QuizCard({ quizDatum, index }) {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   // Handle the button click of an option
-  const handleButtonClick = (e) => {
+  const handleButtonClick = (e: any) => {
     setSelectedAnswer(e.target.innerText);
 
     dispatch({

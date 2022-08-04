@@ -2,7 +2,7 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import { useTheme, useAuth } from "../../hooks/context/index";
 
-function Header() {
+function Header(): JSX.Element {
   const { theme, setTheme } = useTheme();
   const { encodedToken, logoutUserDetails } = useAuth();
 

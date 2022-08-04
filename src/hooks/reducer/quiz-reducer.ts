@@ -1,4 +1,20 @@
-export const quizReducer = (state, action) => {
+type State = {
+  questions: {};
+  expectedAnswers: {};
+  actualAnswers: {};
+};
+
+type Action = {
+  type: string;
+  payload: {
+    questionNumber: string;
+    question: string;
+    expectedAnswer: string;
+    actualAnswer: string;
+  };
+};
+
+export const quizReducer = (state: State, action: Action) => {
   switch (action.type) {
     case "ADD_QUESTION":
       return {

@@ -1,7 +1,7 @@
 import { useDocumentTitle } from "../../hooks/custom/index";
 var errorImage = require("../../assets/images/404_error.svg");
 
-function PageNotFound() {
+function PageNotFound(): JSX.Element {
   // SET DOCUMENT TITLE
   useDocumentTitle("PageNotFound");
 
