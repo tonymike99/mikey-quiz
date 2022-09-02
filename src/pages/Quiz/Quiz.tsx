@@ -18,7 +18,7 @@ function Quiz(): JSX.Element {
   type Params = {
     method: string;
     baseURL: string;
-    url: any;
+    url: string;
   };
 
   const params: Params = {

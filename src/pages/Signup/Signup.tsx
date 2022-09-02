@@ -19,19 +19,19 @@ function Signup(): JSX.Element {
     password: "",
   });
 
-  const handleFirstNameOnChange = (e: any) => {
+  const handleFirstNameOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSignupDetails({ ...signupDetails, firstName: e.target.value });
   };
 
-  const handleLastNameOnChange = (e: any) => {
+  const handleLastNameOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSignupDetails({ ...signupDetails, lastName: e.target.value });
   };
 
-  const handleEmailOnChange = (e: any) => {
+  const handleEmailOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSignupDetails({ ...signupDetails, email: e.target.value });
   };
 
-  const handlePasswordOnChange = (e: any) => {
+  const handlePasswordOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSignupDetails({ ...signupDetails, password: e.target.value });
   };
 
@@ -41,7 +41,7 @@ function Signup(): JSX.Element {
       : setPasswordType("text");
   };
 
-  const handleSignupOnClick = (e: any) => {
+  const handleSignupOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     authenticateSignupDetails(signupDetails);
   };

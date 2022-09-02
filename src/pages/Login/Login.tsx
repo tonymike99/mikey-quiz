@@ -17,11 +17,11 @@ function Login(): JSX.Element {
     password: "",
   });
 
-  const handleEmailOnChange = (e: any) => {
+  const handleEmailOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginDetails({ ...loginDetails, email: e.target.value });
   };
 
-  const handlePasswordOnChange = (e: any) => {
+  const handlePasswordOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginDetails({ ...loginDetails, password: e.target.value });
   };
 
@@ -38,7 +38,7 @@ function Login(): JSX.Element {
     });
   };
 
-  const handleLoginOnClick = (e: any) => {
+  const handleLoginOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     authenticateLoginDetails(loginDetails);
   };
