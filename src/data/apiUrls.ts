@@ -11,6 +11,8 @@ const getApiUrl = (path: string) => {
     return "/api.php?amount=10&category=19&type=multiple&encode=url3986";
   if (path == "/science/gadgets")
     return "/api.php?amount=10&category=30&type=multiple&encode=url3986";
+
+  return "";
 };
 
 export { getApiUrl };
